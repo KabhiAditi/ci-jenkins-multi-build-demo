@@ -4,7 +4,7 @@ public class AppTest {
 
     public static void main(String[] args) {
 
-        int expected = 5;
+        int expected = 6;
         int actual = App.add(2, 3);
 
         if (actual != expected) {
