@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.vit.demo'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClass = 'com.vit.demo.App'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.register('demoTest', JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath + sourceSets.test.runtimeClasspath
+    mainClass = 'com.vit.demo.AppTest'
+}
+
+test {
+    failOnNoDiscoveredTests = false
+    dependsOn demoTest
+}
